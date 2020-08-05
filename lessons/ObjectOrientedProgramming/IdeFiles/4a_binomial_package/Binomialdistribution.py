@@ -47,7 +47,9 @@ class Binomial(Distribution):
         #               farther down in the code starting in line 55. 
         #               The init function can get access to these methods via the self
         #               variable.   
-        pass            
+        self.n = size
+        self.p = prob
+        Distribution.__init__(self, self.calculate_mean(), self.calculate_stdev())
     
     def calculate_mean(self):
     
@@ -63,9 +65,10 @@ class Binomial(Distribution):
         
         # TODO: calculate the mean of the Binomial distribution. Store the mean
         #       via the self variable and also return the new mean value
-                
-        pass 
 
+        self.mean = self.n * self.p * 1.0
+
+        return self.mean
 
 
     def calculate_stdev(self):
@@ -83,7 +86,9 @@ class Binomial(Distribution):
         # TODO: calculate the standard deviation of the Binomial distribution. Store
         #       the result in the self standard deviation attribute. Return the value
         #       of the standard deviation.
-        pass
+        self.stdev = math.sqrt(self.n * self.p * (1-self.p))
+
+        return self.stdev
         
         
         
